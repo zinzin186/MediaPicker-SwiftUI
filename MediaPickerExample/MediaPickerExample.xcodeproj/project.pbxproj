@@ -16,6 +16,7 @@
 		5BFF68522AD68B990099D333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF68492AD68B990099D333 /* AppDelegate.swift */; };
 		5BFF68532AD68B990099D333 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF684A2AD68B990099D333 /* Application.swift */; };
 		5BFF68542AD68B990099D333 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF684B2AD68B990099D333 /* ContentView.swift */; };
+		962680272BEE2E1E00F7DD8F /* ExyteMediaPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13738D1C2AE272FA005BBAD5 /* ExyteMediaPicker in Frameworks */,
+				962680272BEE2E1E00F7DD8F /* ExyteMediaPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +109,7 @@
 			name = MediaPickerExample;
 			packageProductDependencies = (
 				13738D1B2AE272FA005BBAD5 /* ExyteMediaPicker */,
+				962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */,
 			);
 			productName = MediaPickerExample;
 			productReference = 5BFF68312AD689C80099D333 /* MediaPickerExample.app */;
@@ -137,6 +140,7 @@
 			);
 			mainGroup = 5BFF68282AD689C80099D333;
 			packageReferences = (
+				962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */,
 			);
 			productRefGroup = 5BFF68322AD689C80099D333 /* Products */;
 			projectDirPath = "";
@@ -384,9 +388,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = /Volumes/Data/Source/Private/MediaPicker;
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		13738D1B2AE272FA005BBAD5 /* ExyteMediaPicker */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = ExyteMediaPicker;
+		};
+		962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */;
 			productName = ExyteMediaPicker;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -59,28 +59,28 @@ struct CustomizedMediaPicker: View {
             },
             cameraViewBuilder: { cameraSheetView, cancelClosure, showPreviewClosure, takePhotoClosure, startVideoCaptureClosure, stopVideoCaptureClosure, _, _ in
                 cameraSheetView
-                    .overlay(alignment: .topLeading) {
-                        HStack {
-                            Button("Cancel") { cancelClosure() }
-                                .foregroundColor(Color("CustomPurple"))
-                            Spacer()
-                            Button("Done") { showPreviewClosure() }
-                                .foregroundColor(Color("CustomPurple"))
-                        }
-                        .padding()
-                    }
-                    .overlay(alignment: .bottom) {
-                        HStack {
-                            Button("Take photo") { takePhotoClosure() }
-                                .greenButtonStyle()
-                            Button(videoIsBeingRecorded ? "Stop video capture" : "Capture video") {
-                                videoIsBeingRecorded ? stopVideoCaptureClosure() : startVideoCaptureClosure()
-                                videoIsBeingRecorded.toggle()
-                            }
-                            .greenButtonStyle()
-                        }
-                        .padding()
-                    }
+//                    .overlay(alignment: .topLeading) {
+//                        HStack {
+//                            Button("Cancel") { cancelClosure() }
+//                                .foregroundColor(Color("CustomPurple"))
+//                            Spacer()
+//                            Button("Done") { showPreviewClosure() }
+//                                .foregroundColor(Color("CustomPurple"))
+//                        }
+//                        .padding()
+//                    }
+//                    .overlay(alignment: .bottom) {
+//                        HStack {
+//                            Button("Take photo") { takePhotoClosure() }
+//                                .greenButtonStyle()
+//                            Button(videoIsBeingRecorded ? "Stop video capture" : "Capture video") {
+//                                videoIsBeingRecorded ? stopVideoCaptureClosure() : startVideoCaptureClosure()
+//                                videoIsBeingRecorded.toggle()
+//                            }
+//                            .greenButtonStyle()
+//                        }
+//                        .padding()
+//                    }
             }
         )
         .showLiveCameraCell()
@@ -107,16 +107,16 @@ struct CustomizedMediaPicker: View {
                 fullscreenTint: .white
             )
         )
-        .overlay(alignment: .topLeading) {
-            if showAlbumsDropDown {
-                albumsDropdown
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .cornerRadius(5)
-            }
-        }
-        .background(Color.black)
-        .foregroundColor(.white)
+//        .overlay(alignment: .topLeading) {
+//            if showAlbumsDropDown {
+//                albumsDropdown
+//                    .background(Color.white)
+//                    .foregroundColor(.black)
+//                    .cornerRadius(5)
+//            }
+//        }
+//        .background(Color.black)
+//        .foregroundColor(.white)
     }
 
     var headerView: some View {
@@ -141,12 +141,13 @@ struct CustomizedMediaPicker: View {
 
     var footerView: some View {
         HStack {
-            TextField("", text: .constant(""), prompt: Text("Add a caption").foregroundColor(.gray))
-                .padding()
-                .background {
-                    Color.white.opacity(0.2)
-                        .cornerRadius(6)
-                }
+            Text("TextField demo")
+//            TextField("", text: .constant(""), prompt: Text("Add a caption").foregroundColor(.gray))
+//                .padding()
+//                .background {
+//                    Color.white.opacity(0.2)
+//                        .cornerRadius(6)
+//                }
 
             Spacer(minLength: 70)
 
@@ -191,9 +192,9 @@ extension View {
         self.font(.headline)
             .foregroundColor(.black)
             .padding()
-            .background {
+            .background (
                 Color("CustomGreen")
                     .cornerRadius(16)
-            }
+            )
     }
 }

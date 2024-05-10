@@ -18,13 +18,14 @@ struct MediaCell: View {
         GeometryReader { g in
             VStack {
                 if let url = viewModel.imageUrl {
-                    AsyncImage(url: url) { phase in
-                        if case let .success(image) = phase {
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        }
-                    }
+                    Text("AsyncImage")
+//                    AsyncImage(url: url) { phase in
+//                        if case let .success(image) = phase {
+//                            image
+//                                .resizable()
+//                                .scaledToFill()
+//                        }
+//                    }
                 } else if let player = viewModel.player {
                     VideoPlayer(player: player).onTapGesture {
                         viewModel.togglePlay()
@@ -36,9 +37,9 @@ struct MediaCell: View {
             .frame(width: g.size.width, height: g.size.height)
             .clipped()
         }
-        .task {
-            await viewModel.onStart()
-        }
+//        .task {
+//            await viewModel.onStart()
+//        }
         .onDisappear {
             viewModel.onStop()
         }
