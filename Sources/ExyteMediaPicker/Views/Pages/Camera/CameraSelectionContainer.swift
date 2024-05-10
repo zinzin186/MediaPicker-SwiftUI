@@ -24,21 +24,21 @@ public struct CameraSelectionView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .overlay(alignment: .topTrailing) {
-            if selectionParamsHolder.selectionLimit != 1 {
-                SelectIndicatorView(
-                    index: cameraSelectionService.selectedIndex(fromAddedIndex: index),
-                    isFullscreen: true,
-                    canSelect: true,
-                    selectionParamsHolder: selectionParamsHolder
-                )
-                .padding([.horizontal, .bottom], 20)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    cameraSelectionService.onSelect(index: index)
-                }
-            }
-        }
+//        .overlay(alignment: .topTrailing) {
+//            if selectionParamsHolder.selectionLimit != 1 {
+//                SelectIndicatorView(
+//                    index: cameraSelectionService.selectedIndex(fromAddedIndex: index),
+//                    isFullscreen: true,
+//                    canSelect: true,
+//                    selectionParamsHolder: selectionParamsHolder
+//                )
+//                .padding([.horizontal, .bottom], 20)
+//                .contentShape(Rectangle())
+//                .onTapGesture {
+//                    cameraSelectionService.onSelect(index: index)
+//                }
+//            }
+//        }
     }
 }
 

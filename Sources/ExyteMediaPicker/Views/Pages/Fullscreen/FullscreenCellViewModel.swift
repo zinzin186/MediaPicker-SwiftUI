@@ -75,15 +75,16 @@ final class FullscreenCellViewModel: ObservableObject {
     }
 
     func getVideoSize(_ url: URL) async -> CGSize {
-        let videoAsset = AVURLAsset(url : url)
-
-        let videoAssetTrack = try? await videoAsset.loadTracks(withMediaType: .video).first
-        let naturalSize = (try? await videoAssetTrack?.load(.naturalSize)) ?? .zero
-        let transform = try? await videoAssetTrack?.load(.preferredTransform)
-        if (transform?.tx == naturalSize.width && transform?.ty == naturalSize.height) || (transform?.tx == 0 && transform?.ty == 0) {
-            return naturalSize
-        } else {
-            return CGSize(width: naturalSize.height, height: naturalSize.width)
-        }
+//        let videoAsset = AVURLAsset(url : url)
+//
+//        let videoAssetTrack = try? await videoAsset.loadTracks(withMediaType: .video).first
+//        let naturalSize = (try? await videoAssetTrack?.load(.naturalSize)) ?? .zero
+//        let transform = try? await videoAssetTrack?.load(.preferredTransform)
+//        if (transform?.tx == naturalSize.width && transform?.ty == naturalSize.height) || (transform?.tx == 0 && transform?.ty == 0) {
+//            return naturalSize
+//        } else {
+//            return CGSize(width: naturalSize.height, height: naturalSize.width)
+//        }
+        return CGSize(width: 200, height: 200)
     }
 }

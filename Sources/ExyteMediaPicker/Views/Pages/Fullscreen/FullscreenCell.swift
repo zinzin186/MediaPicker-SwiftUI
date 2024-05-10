@@ -28,15 +28,15 @@ struct FullscreenCell: View {
                     }
                 } else {
                     ProgressView()
-                        .tint(.white)
+//                        .tint(.white)
                 }
             }
             .allowsHitTesting(!keyboardHeightHelper.keyboardDisplayed)
             .position(x: g.frame(in: .local).midX, y: g.frame(in: .local).midY)
         }
-        .task {
-            await viewModel.onStart()
-        }
+//        .task {
+//            await viewModel.onStart()
+//        }
         .onDisappear {
             viewModel.onStop()
         }
@@ -52,7 +52,7 @@ struct FullscreenCell: View {
     func videoView(player: AVPlayer, useFill: Bool) -> some View {
         PlayerView(player: player, bgColor: theme.main.fullscreenPhotoBackground, useFill: useFill)
             .disabled(true)
-            .overlay {
+            .overlay (
                 ZStack {
                     Color.clear
                     if !viewModel.isPlaying {
@@ -66,6 +66,6 @@ struct FullscreenCell: View {
                 .onTapGesture {
                     viewModel.togglePlay()
                 }
-            }
+            )
     }
 }

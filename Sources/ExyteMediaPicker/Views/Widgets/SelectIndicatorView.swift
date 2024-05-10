@@ -35,18 +35,12 @@ struct SelectIndicatorView: View {
                     .resizable()
                     .foregroundColor(theme.selection.selectedTint)
                     .padding(2)
-                    .background {
-                        Circle()
-                            .fill(theme.selection.selectedBackground)
-                    }
+                    .background(Circle().fill(theme.selection.selectedBackground))
             } else if canSelect {
                 Image(systemName: "circle")
                     .resizable()
                     .foregroundColor(isFullscreen ? theme.selection.fullscreenTint : theme.selection.emptyTint)
-                    .background {
-                        Circle()
-                            .fill(theme.selection.emptyBackground)
-                    }
+                    .background(Circle().fill(theme.selection.selectedBackground))
             }
         }
     }
@@ -57,18 +51,12 @@ struct SelectIndicatorView: View {
                 Image(systemName: "\(index + 1).circle.fill")
                     .resizable()
                     .foregroundColor(theme.selection.selectedTint)
-                    .background {
-                        Circle()
-                            .fill(theme.selection.selectedBackground)
-                    }
+                    .background(Circle().fill(theme.selection.selectedBackground))
             } else if canSelect {
                 Image(systemName: "circle")
                     .resizable()
                     .foregroundColor(isFullscreen ? theme.selection.fullscreenTint : theme.selection.emptyTint)
-                    .background {
-                        Circle()
-                            .fill(theme.selection.emptyBackground)
-                    }
+                    .background(Circle().fill(theme.selection.selectedBackground))
             }
         }
     }

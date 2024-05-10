@@ -49,7 +49,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .foregroundColor(Color(uiColor: .label))
+            .foregroundColor(Color.gray)
             .navigationTitle("Examples")
         }
 

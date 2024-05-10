@@ -14,14 +14,14 @@ struct AlbumCell: View {
         VStack {
             Rectangle()
                 .aspectRatio(1, contentMode: .fit)
-                .overlay {
-                    GeometryReader { geometry in
-                        ThumbnailView(preview: viewModel.preview)
-                            .onAppear {
-                                viewModel.fetchPreview(size: geometry.size)
-                            }
-                    }
-                }
+//                .overlay {
+//                    GeometryReader { geometry in
+//                        ThumbnailView(preview: viewModel.preview)
+//                            .onAppear {
+//                                viewModel.fetchPreview(size: geometry.size)
+//                            }
+//                    }
+//                }
                 .clipped()
                 .foregroundColor(theme.main.albumSelectionBackground)
             

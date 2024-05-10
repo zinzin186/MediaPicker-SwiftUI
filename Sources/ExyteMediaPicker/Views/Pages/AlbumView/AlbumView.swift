@@ -86,18 +86,18 @@ private extension AlbumView {
                 dismissKeyboard()
             }
         }
-        .overlay {
-            if let item = fullscreenItem {
-                FullscreenContainer(
-                    isPresented: fullscreenPresentedBinding(),
-                    currentFullscreenMedia: $currentFullscreenMedia,
-                    assetMediaModels: viewModel.assetMediaModels,
-                    selection: item.id,
-                    selectionParamsHolder: selectionParamsHolder,
-                    shouldDismiss: shouldDismiss
-                )
-            }
-        }
+//        .overlay {
+//            if let item = fullscreenItem {
+//                FullscreenContainer(
+//                    isPresented: fullscreenPresentedBinding(),
+//                    currentFullscreenMedia: $currentFullscreenMedia,
+//                    assetMediaModels: viewModel.assetMediaModels,
+//                    selection: item.id,
+//                    selectionParamsHolder: selectionParamsHolder,
+//                    shouldDismiss: shouldDismiss
+//                )
+//            }
+//        }
     }
 
     func fullscreenPresentedBinding() -> Binding<Bool> {

@@ -33,9 +33,9 @@ extension MediaPickerTheme {
         public let cameraBackground: Color
         public let cameraSelectionBackground: Color
 
-        public init(text: Color = Color(uiColor: .label),
-                    albumSelectionBackground: Color = Color(uiColor: .systemGroupedBackground),
-                    fullscreenPhotoBackground: Color = Color(uiColor: .systemGroupedBackground),
+        public init(text: Color = Color.black,
+                    albumSelectionBackground: Color = Color.gray,
+                    fullscreenPhotoBackground: Color = Color.gray,
                     cameraBackground: Color = .black,
                     cameraSelectionBackground: Color = .black) {
             self.text = text
@@ -94,7 +94,7 @@ extension MediaPickerTheme {
     public struct DefaultHeader {
         public let background: Color
 
-        public init(background: Color = Color(uiColor: .systemGroupedBackground),
+        public init(background: Color = Color.gray,
                     segmentTintColor: Color = .white,
                     selectedSegmentTintColor: Color = .white,
                     selectedText: Color = .black,

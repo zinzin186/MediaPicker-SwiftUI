@@ -39,13 +39,13 @@ struct FullscreenContainer: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .background {
-            theme.main.fullscreenPhotoBackground
-                .ignoresSafeArea()
-        }
-        .overlay(alignment: .top) {
-            controlsOverlay
-        }
+//        .background {
+//            theme.main.fullscreenPhotoBackground
+//                .ignoresSafeArea()
+//        }
+//        .overlay(alignment: .top) {
+//            controlsOverlay
+//        }
         .onAppear {
             if let selectedMediaModel {
                 currentFullscreenMedia = Media(source: selectedMediaModel)
@@ -100,6 +100,6 @@ struct FullscreenContainer: View {
                 }
             }
         }
-        .foregroundStyle(theme.selection.fullscreenTint)
+//        .foregroundStyle(theme.selection.fullscreenTint)
     }
 }

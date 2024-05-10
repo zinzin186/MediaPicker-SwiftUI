@@ -86,11 +86,11 @@ struct StandardConrolsCameraView: View {
                 videoGravity: .resizeAspectFill,
                 orientation: .portrait
             )
-            .overlay {
-                if cameraViewModel.snapOverlay {
-                    Rectangle()
-                }
-            }
+//            .overlay {
+//                if cameraViewModel.snapOverlay {
+//                    Rectangle()
+//                }
+//            }
             .gesture(
                 MagnificationGesture()
                     .onChanged(cameraViewModel.zoomChanged(_:))

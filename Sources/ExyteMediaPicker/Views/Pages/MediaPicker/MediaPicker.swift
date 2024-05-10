@@ -184,9 +184,9 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                 )
             }
         }
-        .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
-            deleteAllButton
-        }
+//        .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
+//            deleteAllButton
+//        }
     }
 
     @ViewBuilder
@@ -218,9 +218,9 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                         viewModel.setPickerMode(.photos)
                     }
                 }
-                .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
-                    deleteAllButton
-                }
+//                .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
+//                    deleteAllButton
+//                }
             }
         }
         .onAppear {
