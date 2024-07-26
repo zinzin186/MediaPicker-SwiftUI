@@ -69,13 +69,17 @@ public extension MediaPicker where CameraViewContent == EmptyView {
     init(isPresented: Binding<Bool>,
          onChange: @escaping MediaPickerCompletionClosure,
          albumSelectionBuilder: @escaping AlbumSelectionClosure,
-         cameraSelectionBuilder: @escaping CameraSelectionClosure) {
+         cameraSelectionBuilder: @escaping CameraSelectionClosure,
+         didPressCamera: (() -> Void)? = nil
+    ) {
 
         self.init(isPresented: isPresented,
                   onChange: onChange,
                   albumSelectionBuilder: albumSelectionBuilder,
                   cameraSelectionBuilder: cameraSelectionBuilder,
-                  cameraViewBuilder: nil)
+                  cameraViewBuilder: nil,
+                  didPressCamera: didPressCamera
+        )
     }
 }
 

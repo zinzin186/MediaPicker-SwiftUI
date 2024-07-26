@@ -48,10 +48,11 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
 
     @Binding private var albums: [Album]
     @Binding private var currentFullscreenMediaBinding: Media?
+    @Binding var disableScroll: Bool
 
     private var pickerMode: Binding<MediaPickerMode>?
     private var showingLiveCameraCell: Bool = false
-    private var didPressCancelCamera: (() -> Void)?
+    private var didPressCamera: (() -> Void)?
     private var orientationHandler: MediaPickerOrientationHandler = {_ in}
     private var filterClosure: FilterClosure?
     private var massFilterClosure: MassFilterClosure?
@@ -65,9 +66,10 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
     @StateObject private var selectionService = SelectionService()
     @StateObject private var cameraSelectionService = CameraSelectionService()
     @StateObject private var permissionService = PermissionsService()
-
+    
     @State private var readyToShowCamera = false
     @State private var currentFullscreenMedia: Media?
+    
 
     @State private var internalPickerMode: MediaPickerMode = .photos // a hack for slow camera dismissal
 
@@ -81,16 +83,18 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                 onChange: @escaping MediaPickerCompletionClosure,
                 albumSelectionBuilder: AlbumSelectionClosure? = nil,
                 cameraSelectionBuilder: CameraSelectionClosure? = nil,
-                cameraViewBuilder: CameraViewClosure? = nil) {
+                cameraViewBuilder: CameraViewClosure? = nil,
+                didPressCamera: (() -> Void)? = nil) {
 
         self._isPresented = isPresented
         self._albums = .constant([])
         self._currentFullscreenMediaBinding = .constant(nil)
-
+        self._disableScroll = .constant(false)
         self.onChange = onChange
         self.albumSelectionBuilder = albumSelectionBuilder
         self.cameraSelectionBuilder = cameraSelectionBuilder
         self.cameraViewBuilder = cameraViewBuilder
+        self.didPressCamera = didPressCamera
     }
 
     public var body: some View {
@@ -122,6 +126,9 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
 
             viewModel.shouldUpdatePickerMode = { mode in
                 pickerMode?.wrappedValue = mode
+                if mode == .camera {
+                    self.didPressCamera?()
+                }
             }
             viewModel.onStart()
         }
@@ -134,7 +141,12 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
             }
         }
         .onChange(of: viewModel.internalPickerMode) { newValue in
-            internalPickerMode = newValue
+            if newValue == .camera {
+                self.didPressCamera?()
+            } else {
+                internalPickerMode = newValue
+            }
+            
         }
         .onChange(of: currentFullscreenMedia) { currentFullscreenMedia in
             _currentFullscreenMediaBinding.wrappedValue = currentFullscreenMedia
@@ -148,7 +160,7 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
 
     @ViewBuilder
     var albumSelectionContainer: some View {
-        let albumSelectionView = AlbumSelectionView(viewModel: viewModel, showingCamera: cameraBinding(), currentFullscreenMedia: $currentFullscreenMedia, showingLiveCameraCell: showingLiveCameraCell, selectionParamsHolder: selectionParamsHolder, filterClosure: filterClosure, massFilterClosure: massFilterClosure) {
+        let albumSelectionView = AlbumSelectionView(viewModel: viewModel, showingCamera: cameraBinding(), disableScroll: $disableScroll, currentFullscreenMedia: $currentFullscreenMedia, showingLiveCameraCell: showingLiveCameraCell, selectionParamsHolder: selectionParamsHolder, filterClosure: filterClosure, massFilterClosure: massFilterClosure) {
             // has media limit of 1, and it's been selected
             isPresented = false
         }
@@ -212,11 +224,7 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                     cameraSelectionService.onSelect(media: URLMediaModel(url: url))
                     viewModel.pickedMediaUrl = nil
                 } didPressCancel: {
-                    if let didPressCancel = didPressCancelCamera {
-                        didPressCancel()
-                    } else {
-                        viewModel.setPickerMode(.photos)
-                    }
+                    viewModel.setPickerMode(.photos)
                 }
 //                .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
 //                    deleteAllButton
@@ -373,7 +381,6 @@ public extension MediaPicker {
 
     func didPressCancelCamera(_ didPressCancelCamera: @escaping ()->()) -> MediaPicker {
         var mediaPicker = self
-        mediaPicker.didPressCancelCamera = didPressCancelCamera
         return mediaPicker
     }
 
@@ -400,4 +407,11 @@ public extension MediaPicker {
         mediaPicker.pickerMode = mode
         return mediaPicker
     }
+    
+    func disableScroll(_ disableScroll: Binding<Bool>) -> MediaPicker {
+        var mediaPicker = self
+        mediaPicker._disableScroll = disableScroll
+        return mediaPicker
+    }
+    
 }

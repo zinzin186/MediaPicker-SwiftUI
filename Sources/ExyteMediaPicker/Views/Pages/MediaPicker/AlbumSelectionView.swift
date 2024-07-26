@@ -12,6 +12,7 @@ public struct AlbumSelectionView: View {
     @ObservedObject var viewModel: MediaPickerViewModel
 
     @Binding var showingCamera: Bool
+    @Binding var disableScroll: Bool
     @Binding var currentFullscreenMedia: Media?
 
     let showingLiveCameraCell: Bool
@@ -30,6 +31,7 @@ public struct AlbumSelectionView: View {
                     mediasProvider: AllPhotosProvider(selectionParamsHolder: selectionParamsHolder, filterClosure: filterClosure, massFilterClosure: massFilterClosure, showingLoadingCell: $showingLoadingCell)
                 ),
                 showingCamera: $showingCamera,
+                disableScroll: $disableScroll,
                 currentFullscreenMedia: $currentFullscreenMedia,
                 shouldShowCamera: showingLiveCameraCell,
                 shouldShowLoadingCell: showingLoadingCell,
@@ -58,6 +60,7 @@ public struct AlbumSelectionView: View {
                         mediasProvider: AlbumMediasProvider(album: albumModel, selectionParamsHolder: selectionParamsHolder, filterClosure: filterClosure, massFilterClosure: massFilterClosure, showingLoadingCell: $showingLoadingCell)
                     ),
                     showingCamera: $showingCamera,
+                    disableScroll: $disableScroll,
                     currentFullscreenMedia: $currentFullscreenMedia,
                     shouldShowCamera: false,
                     shouldShowLoadingCell: showingLoadingCell,

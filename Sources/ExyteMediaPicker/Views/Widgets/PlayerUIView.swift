@@ -8,23 +8,29 @@
 import SwiftUI
 import AVFoundation
 
-struct PlayerView: UIViewRepresentable {
+public struct PlayerView: UIViewRepresentable {
 
-    var player: AVPlayer
-    var bgColor: Color
-    var useFill: Bool
+    public var player: AVPlayer
+    public var bgColor: Color
+    public var useFill: Bool
+    
+    public init(player: AVPlayer, bgColor: Color, useFill: Bool) {
+        self.player = player
+        self.bgColor = bgColor
+        self.useFill = useFill
+    }
 
-    func makeUIView(context: Context) -> PlayerUIView {
+    public func makeUIView(context: Context) -> PlayerUIView {
         PlayerUIView(player: player, bgColor: bgColor, useFill: useFill)
     }
 
-    func updateUIView(_ uiView: PlayerUIView, context: UIViewRepresentableContext<PlayerView>) {
+    public func updateUIView(_ uiView: PlayerUIView, context: UIViewRepresentableContext<PlayerView>) {
         uiView.playerLayer.player = player
         uiView.playerLayer.videoGravity = useFill ? .resizeAspectFill : .resizeAspect
     }
 }
 
-class PlayerUIView: UIView {
+public class PlayerUIView: UIView {
 
     // MARK: Class Property
 
@@ -51,7 +57,7 @@ class PlayerUIView: UIView {
 
     // MARK: Life-Cycle
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
     }

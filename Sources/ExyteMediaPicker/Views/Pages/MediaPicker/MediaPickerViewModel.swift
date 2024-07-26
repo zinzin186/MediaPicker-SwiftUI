@@ -35,7 +35,10 @@ final class MediaPickerViewModel: ObservableObject {
     }
 
     func setPickerMode(_ mode: MediaPickerMode) {
-        internalPickerMode = mode
+        if mode != .camera {
+            internalPickerMode = mode
+        }
+       
         shouldUpdatePickerMode(mode)
     }
 

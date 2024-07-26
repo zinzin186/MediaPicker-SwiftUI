@@ -14,6 +14,7 @@ struct AlbumView: View {
 
     @StateObject var viewModel: AlbumViewModel
     @Binding var showingCamera: Bool
+    @Binding var disableScroll: Bool
     @Binding var currentFullscreenMedia: Media?
 
     var shouldShowCamera: Bool
@@ -36,7 +37,7 @@ private extension AlbumView {
 
     @ViewBuilder
     var content: some View {
-        ScrollView {
+        ScrollingModifier(disabled: $disableScroll) {
             VStack {
                 if let action = permissionsService.photoLibraryAction {
                     PermissionsActionView(action: .library(action))
@@ -86,18 +87,16 @@ private extension AlbumView {
                 dismissKeyboard()
             }
         }
-//        .overlay {
-//            if let item = fullscreenItem {
-//                FullscreenContainer(
-//                    isPresented: fullscreenPresentedBinding(),
-//                    currentFullscreenMedia: $currentFullscreenMedia,
-//                    assetMediaModels: viewModel.assetMediaModels,
-//                    selection: item.id,
-//                    selectionParamsHolder: selectionParamsHolder,
-//                    shouldDismiss: shouldDismiss
-//                )
-//            }
-//        }
+//        .overlay(
+//            FullscreenContainer(
+//                isPresented: fullscreenPresentedBinding(),
+//                currentFullscreenMedia: $currentFullscreenMedia,
+//                assetMediaModels: viewModel.assetMediaModels,
+//                selection: fullscreenItem?.id ?? "",
+//                selectionParamsHolder: selectionParamsHolder,
+//                shouldDismiss: shouldDismiss
+//            )
+//        )
     }
 
     func fullscreenPresentedBinding() -> Binding<Bool> {
@@ -143,4 +142,27 @@ private extension AlbumView {
         }
     }
 
+}
+
+struct ScrollingModifier<Content> : View where Content : View {
+
+    @Binding var disabled: Bool
+    @ViewBuilder var content: () -> Content
+    
+    var body: some View {
+        if #available(iOS 16.0, *) {
+            ScrollView{
+                content()
+            }.scrollDisabled(disabled)
+        } else {
+            if disabled {
+                content()
+            } else {
+                ScrollView {
+                    content()
+                }
+            }
+        }
+    }
+    
 }

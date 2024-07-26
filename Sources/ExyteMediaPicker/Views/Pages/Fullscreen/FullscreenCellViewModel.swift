@@ -8,7 +8,7 @@ import AVKit
 import UIKit.UIImage
 
 @MainActor
-final class FullscreenCellViewModel: ObservableObject {
+final public class FullscreenCellViewModel: ObservableObject {
 
     let mediaModel: MediaModelProtocol
 
@@ -19,7 +19,7 @@ final class FullscreenCellViewModel: ObservableObject {
 
     private var currentTask: Task<Void, Never>?
 
-    init(mediaModel: MediaModelProtocol) {
+    public init(mediaModel: MediaModelProtocol) {
         self.mediaModel = mediaModel
     }
 

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class KeyboardHeightHelper: ObservableObject {
+public class KeyboardHeightHelper: ObservableObject {
 
-    static var shared = KeyboardHeightHelper()
+    public static var shared = KeyboardHeightHelper()
 
-    @Published var keyboardHeight: CGFloat = 0
-    @Published var keyboardDisplayed: Bool = false
+    @Published public var keyboardHeight: CGFloat = 0
+    @Published public var keyboardDisplayed: Bool = false
 
     init() {
         self.listenForKeyboardNotifications()

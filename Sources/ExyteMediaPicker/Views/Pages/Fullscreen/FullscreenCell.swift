@@ -6,14 +6,14 @@ import Foundation
 import SwiftUI
 import AVKit
 
-struct FullscreenCell: View {
+public struct FullscreenCell: View {
     
     @Environment(\.mediaPickerTheme) private var theme
 
-    @StateObject var viewModel: FullscreenCellViewModel
+    @StateObject public var viewModel: FullscreenCellViewModel
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper.shared
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { g in
             Group {
                 if let image = viewModel.image {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol MediaModelProtocol {
+public protocol MediaModelProtocol {
     var mediaType: MediaType? { get }
     var duration: CGFloat? { get }
 
