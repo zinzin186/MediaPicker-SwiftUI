@@ -38,7 +38,7 @@ private extension PermissionsActionView {
     func buildLibraryAction(_ action: PermissionsService.PhotoLibraryAction) -> some View {
         switch action {
         case .selectMore:
-            PermissionsErrorView(text: "Setup Photos access to see more photos here") {
+            PermissionsErrorView(text: "Setup to see more photos") {
                 showSheet = true
             }
         case .authorize:
