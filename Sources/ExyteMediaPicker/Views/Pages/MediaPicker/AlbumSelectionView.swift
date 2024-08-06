@@ -20,6 +20,11 @@ public struct AlbumSelectionView: View {
     let filterClosure: MediaPicker.FilterClosure?
     let massFilterClosure: MediaPicker.MassFilterClosure?
     var shouldDismiss: ()->()
+    var clearAll: ()->()
+    
+    public func clear() {
+        clearAll()
+    }
 
     @State private var showingLoadingCell = false
 

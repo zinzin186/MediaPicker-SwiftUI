@@ -163,6 +163,9 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
         let albumSelectionView = AlbumSelectionView(viewModel: viewModel, showingCamera: cameraBinding(), disableScroll: $disableScroll, currentFullscreenMedia: $currentFullscreenMedia, showingLiveCameraCell: showingLiveCameraCell, selectionParamsHolder: selectionParamsHolder, filterClosure: filterClosure, massFilterClosure: massFilterClosure) {
             // has media limit of 1, and it's been selected
             isPresented = false
+        } clearAll: {
+            selectionService.removeAll()
+            cameraSelectionService.removeAll()
         }
 
         if let albumSelectionBuilder = albumSelectionBuilder {
