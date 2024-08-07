@@ -74,7 +74,9 @@ extension PHAsset {
         guard mediaType == .video || mediaType == .audio else {
             return nil
         }
-        return duration.formatted()
+        let seconds: Int = Int(duration)
+        return "\(seconds/60):\(seconds%3600) "
+//        return duration.formatted()
     }
 }
 

@@ -53,6 +53,8 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
     private var pickerMode: Binding<MediaPickerMode>?
     private var showingLiveCameraCell: Bool = false
     private var didPressCamera: (() -> Void)?
+    private var onLimitItem: (() -> Void)?
+    private var onTapItem: ((Media) -> Void)?
     private var orientationHandler: MediaPickerOrientationHandler = {_ in}
     private var filterClosure: FilterClosure?
     private var massFilterClosure: MassFilterClosure?
@@ -84,7 +86,10 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
                 albumSelectionBuilder: AlbumSelectionClosure? = nil,
                 cameraSelectionBuilder: CameraSelectionClosure? = nil,
                 cameraViewBuilder: CameraViewClosure? = nil,
-                didPressCamera: (() -> Void)? = nil) {
+                didPressCamera: (() -> Void)? = nil,
+                onLimitItem: (() -> Void)? = nil,
+                onTapItem: ((Media) -> Void)? = nil
+    ) {
 
         self._isPresented = isPresented
         self._albums = .constant([])
@@ -95,6 +100,8 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
         self.cameraSelectionBuilder = cameraSelectionBuilder
         self.cameraViewBuilder = cameraViewBuilder
         self.didPressCamera = didPressCamera
+        self.onLimitItem = onLimitItem
+        self.onTapItem = onTapItem
     }
 
     public var body: some View {
@@ -120,7 +127,8 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
 
             selectionService.onChange = onChange
             selectionService.mediaSelectionLimit = selectionParamsHolder.selectionLimit
-            
+            selectionService.onLimitItem = onLimitItem
+            selectionService.onTapItem = onTapItem
             cameraSelectionService.onChange = onChange
             cameraSelectionService.mediaSelectionLimit = selectionParamsHolder.selectionLimit
 
@@ -166,6 +174,8 @@ public struct MediaPicker<AlbumSelectionContent: View, CameraSelectionContent: V
         } clearAll: {
             selectionService.removeAll()
             cameraSelectionService.removeAll()
+        } onTapMedia: { item in
+            onTapItem?(item)
         }
 
         if let albumSelectionBuilder = albumSelectionBuilder {

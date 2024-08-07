@@ -70,7 +70,9 @@ public extension MediaPicker where CameraViewContent == EmptyView {
          onChange: @escaping MediaPickerCompletionClosure,
          albumSelectionBuilder: @escaping AlbumSelectionClosure,
          cameraSelectionBuilder: @escaping CameraSelectionClosure,
-         didPressCamera: (() -> Void)? = nil
+         didPressCamera: (() -> Void)? = nil,
+         onLimitItem: (() -> Void)? = nil,
+         onTapItem: ((Media) -> Void)? = nil
     ) {
 
         self.init(isPresented: isPresented,
@@ -78,7 +80,9 @@ public extension MediaPicker where CameraViewContent == EmptyView {
                   albumSelectionBuilder: albumSelectionBuilder,
                   cameraSelectionBuilder: cameraSelectionBuilder,
                   cameraViewBuilder: nil,
-                  didPressCamera: didPressCamera
+                  didPressCamera: didPressCamera,
+                  onLimitItem: onLimitItem,
+                  onTapItem: onTapItem
         )
     }
 }

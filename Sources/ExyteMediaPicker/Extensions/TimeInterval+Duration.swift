@@ -7,7 +7,7 @@ import Foundation
 extension TimeInterval {
     func formatted(locale: Locale = .current) -> String? {
         let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .abbreviated
+        formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .dropAll
         formatter.allowedUnits = [.day, .hour, .minute, .second]
         formatter.maximumUnitCount = 2

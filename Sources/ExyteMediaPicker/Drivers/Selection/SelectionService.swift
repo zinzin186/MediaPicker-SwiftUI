@@ -11,6 +11,8 @@ final class SelectionService: ObservableObject {
 
     var mediaSelectionLimit: Int?
     var onChange: MediaPickerCompletionClosure? = nil
+    var onLimitItem: (() -> Void)?
+    var onTapItem: ((Media) -> Void)?
 
     @Published private(set) var selected: [AssetMediaModel] = []
 
@@ -20,6 +22,9 @@ final class SelectionService: ObservableObject {
 
     var fitsSelectionLimit: Bool {
         if let selectionLimit = mediaSelectionLimit {
+            if selected.count >= selectionLimit {
+                self.onLimitItem?()
+            }
             return selected.count < selectionLimit
         }
         return true

@@ -21,6 +21,7 @@ struct AlbumView: View {
     var shouldShowLoadingCell: Bool
     var selectionParamsHolder: SelectionParamsHolder
     var shouldDismiss: ()->()
+    var onTapItem: (Media)->()
 
     @State private var fullscreenItem: AssetMediaModel?
 
@@ -122,9 +123,12 @@ private extension AlbumView {
                     shouldDismiss()
                 }
             }
-            else if fullscreenItem == nil {
-                fullscreenItem = assetMediaModel
+            else {
+                onTapItem(Media(source: assetMediaModel))
             }
+//            if fullscreenItem == nil {
+//                fullscreenItem = assetMediaModel
+//            } 
         } label: {
             MediaCell(viewModel: MediaViewModel(assetMediaModel: assetMediaModel))
         }
