@@ -13,6 +13,13 @@ public enum MediaType {
 public struct Media: Identifiable, Equatable {
     public var id = UUID()
     internal let source: MediaModelProtocol
+    
+    public var localIdentifier: String? {
+        if let asset = source as? AssetMediaModel {
+            return asset.asset.localIdentifier
+        }
+        return nil
+    }
 
     public static func == (lhs: Media, rhs: Media) -> Bool {
         lhs.id == rhs.id
