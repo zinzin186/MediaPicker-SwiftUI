@@ -48,7 +48,8 @@ struct SelectIndicatorView: View {
     var countView: some View {
         Group {
             if let index = index {
-                Image(systemName: "\(index + 1).circle.fill")
+//                Image(systemName: "\(index + 1).circle.fill")
+                Image(systemName: "checkmark.circle.fill")
                     .resizable()
                     .foregroundColor(theme.selection.selectedTint)
                     .background(Circle().fill(theme.selection.selectedBackground))
