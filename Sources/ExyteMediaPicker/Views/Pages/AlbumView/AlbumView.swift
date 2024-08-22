@@ -125,6 +125,9 @@ private extension AlbumView {
             }
             else {
                 onTapItem(Media(source: assetMediaModel))
+                if selectionService.selected.first(where: {$0.id == assetMediaModel.id}) == nil {
+                    selectionService.onSelect(assetMediaModel: assetMediaModel)
+                }
             }
 //            if fullscreenItem == nil {
 //                fullscreenItem = assetMediaModel
