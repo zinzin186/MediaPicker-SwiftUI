@@ -21,7 +21,7 @@ struct LiveCameraCell: View {
                 orientation: orientation
             )
             .overlay(
-                Image(systemName: "camera")
+                Image("ic_camera", bundle: .current)
                     .foregroundColor(.white)
             )
         }

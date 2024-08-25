@@ -24,8 +24,9 @@ struct SelectIndicatorView: View {
                 countView
             }
         }
-        .frame(width: 24, height: 24)
-        .padding(.top, isFullscreen ? 11 : -2)
+        .frame(width: 18, height: 18)
+        .padding(.top, isFullscreen ? 11 : 5)
+        .padding(.trailing, isFullscreen ? 11 : 5)
     }
 
     var checkView: some View {
@@ -54,10 +55,9 @@ struct SelectIndicatorView: View {
                     .foregroundColor(theme.selection.selectedTint)
                     .background(Circle().fill(theme.selection.selectedBackground))
             } else if canSelect {
-                Image(systemName: "circle")
-                    .resizable()
-                    .foregroundColor(isFullscreen ? theme.selection.fullscreenTint : theme.selection.emptyTint)
-                    .background(Circle().fill(theme.selection.selectedBackground))
+               Image("circle_path", bundle: .current)
+                                                   .resizable()
+
             }
         }
     }

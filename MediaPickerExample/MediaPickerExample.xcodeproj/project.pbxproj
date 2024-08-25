@@ -393,7 +393,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = /Volumes/Data/Source/Private/MediaPicker;
 			requirement = {
-				branch = develop;
+				branch = main;
 				kind = branch;
 			};
 		};
