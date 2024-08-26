@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13738D1C2AE272FA005BBAD5 /* ExyteMediaPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 13738D1B2AE272FA005BBAD5 /* ExyteMediaPicker */; };
+		2976F217FB6EB9488177D4BC /* Pods_MediaPickerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D683BE89BD31A09514C01F /* Pods_MediaPickerExample.framework */; };
 		5BFF684D2AD68B990099D333 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF68432AD68B990099D333 /* MediaCell.swift */; };
 		5BFF684E2AD68B990099D333 /* FilterMediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF68442AD68B990099D333 /* FilterMediaPicker.swift */; };
 		5BFF684F2AD68B990099D333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF68452AD68B990099D333 /* Assets.xcassets */; };
@@ -16,10 +17,11 @@
 		5BFF68522AD68B990099D333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF68492AD68B990099D333 /* AppDelegate.swift */; };
 		5BFF68532AD68B990099D333 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF684A2AD68B990099D333 /* Application.swift */; };
 		5BFF68542AD68B990099D333 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF684B2AD68B990099D333 /* ContentView.swift */; };
-		962680272BEE2E1E00F7DD8F /* ExyteMediaPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1033B36D8DB6C0FDCD247D3F /* Pods-MediaPickerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPickerExample.debug.xcconfig"; path = "Target Support Files/Pods-MediaPickerExample/Pods-MediaPickerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		36D683BE89BD31A09514C01F /* Pods_MediaPickerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediaPickerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFF68312AD689C80099D333 /* MediaPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFF68432AD68B990099D333 /* MediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		5BFF68442AD68B990099D333 /* FilterMediaPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMediaPicker.swift; sourceTree = "<group>"; };
@@ -29,6 +31,7 @@
 		5BFF68492AD68B990099D333 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFF684A2AD68B990099D333 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		5BFF684B2AD68B990099D333 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD3D19BF427A151BF306EA60 /* Pods-MediaPickerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPickerExample.release.xcconfig"; path = "Target Support Files/Pods-MediaPickerExample/Pods-MediaPickerExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13738D1C2AE272FA005BBAD5 /* ExyteMediaPicker in Frameworks */,
-				962680272BEE2E1E00F7DD8F /* ExyteMediaPicker in Frameworks */,
+				2976F217FB6EB9488177D4BC /* Pods_MediaPickerExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 				5BFF68422AD68B990099D333 /* MediaPickerExample */,
 				5BFF68322AD689C80099D333 /* Products */,
 				5BFF68572AD68C510099D333 /* Frameworks */,
+				C6BFCD248E6337387F758BD5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,8 +91,18 @@
 		5BFF68572AD68C510099D333 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36D683BE89BD31A09514C01F /* Pods_MediaPickerExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6BFCD248E6337387F758BD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1033B36D8DB6C0FDCD247D3F /* Pods-MediaPickerExample.debug.xcconfig */,
+				DD3D19BF427A151BF306EA60 /* Pods-MediaPickerExample.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BFF683F2AD689C90099D333 /* Build configuration list for PBXNativeTarget "MediaPickerExample" */;
 			buildPhases = (
+				8D9D056308D36730C1D91021 /* [CP] Check Pods Manifest.lock */,
 				5BFF682D2AD689C80099D333 /* Sources */,
 				5BFF682E2AD689C80099D333 /* Frameworks */,
 				5BFF682F2AD689C80099D333 /* Resources */,
+				AAD65E24FA9FF65E0809DBC0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,7 +125,6 @@
 			name = MediaPickerExample;
 			packageProductDependencies = (
 				13738D1B2AE272FA005BBAD5 /* ExyteMediaPicker */,
-				962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */,
 			);
 			productName = MediaPickerExample;
 			productReference = 5BFF68312AD689C80099D333 /* MediaPickerExample.app */;
@@ -140,7 +155,6 @@
 			);
 			mainGroup = 5BFF68282AD689C80099D333;
 			packageReferences = (
-				962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */,
 			);
 			productRefGroup = 5BFF68322AD689C80099D333 /* Products */;
 			projectDirPath = "";
@@ -162,6 +176,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D9D056308D36730C1D91021 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MediaPickerExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAD65E24FA9FF65E0809DBC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MediaPickerExample/Pods-MediaPickerExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MediaPickerExample/Pods-MediaPickerExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MediaPickerExample/Pods-MediaPickerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BFF682D2AD689C80099D333 /* Sources */ = {
@@ -301,6 +357,7 @@
 		};
 		5BFF68402AD689C90099D333 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1033B36D8DB6C0FDCD247D3F /* Pods-MediaPickerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,6 +391,7 @@
 		};
 		5BFF68412AD689C90099D333 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD3D19BF427A151BF306EA60 /* Pods-MediaPickerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -388,25 +446,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = /Volumes/Data/Source/Private/MediaPicker;
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		13738D1B2AE272FA005BBAD5 /* ExyteMediaPicker */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ExyteMediaPicker;
-		};
-		962680262BEE2E1E00F7DD8F /* ExyteMediaPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 962680252BEE2E1E00F7DD8F /* XCRemoteSwiftPackageReference "MediaPicker" */;
 			productName = ExyteMediaPicker;
 		};
 /* End XCSwiftPackageProductDependency section */

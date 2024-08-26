@@ -1,0 +1,16 @@
+PODS:
+  - ExyteMediaPicker (2.2.9)
+
+DEPENDENCIES:
+  - ExyteMediaPicker (from `/Volumes/Data/Source/Private/MediaPicker`)
+
+EXTERNAL SOURCES:
+  ExyteMediaPicker:
+    :path: "/Volumes/Data/Source/Private/MediaPicker"
+
+SPEC CHECKSUMS:
+  ExyteMediaPicker: 5b7040955412220ad59b07e3fb5893d7e38ea5fe
+
+PODFILE CHECKSUM: 0935167048166a13030a11fd5d466113f99c836a
+
+COCOAPODS: 1.14.3
