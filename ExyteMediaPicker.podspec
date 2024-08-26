@@ -19,5 +19,9 @@ Pod::Spec.new do |s|
      'Sources/*.swift',
      'Sources/**/*.swift'
   ]
+  s.resources = [
+          'Sources/**/*.xcassets',
+          'Sources/*.xcassets'
+    ]
 
 end
