@@ -75,8 +75,7 @@ extension PHAsset {
             return nil
         }
         let seconds: Int = Int(duration)
-        return "\(seconds/60):\(seconds%3600) "
-//        return duration.formatted()
+        return String(format: "%02d:%02d", seconds/60, seconds%60)
     }
 }
 

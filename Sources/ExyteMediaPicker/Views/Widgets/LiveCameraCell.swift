@@ -15,15 +15,26 @@ struct LiveCameraCell: View {
         Button {
             action()
         } label: {
-            LiveCameraView(
-                session: liveCameraViewModel.captureSession,
-                videoGravity: .resizeAspectFill,
-                orientation: orientation
-            )
-            .overlay(
-                Image("ic_camera", bundle: .current)
-                    .foregroundColor(.white)
-            )
+            if #available(iOS 16.0, *) {
+                LiveCameraView(
+                    session: liveCameraViewModel.captureSession,
+                    videoGravity: .resizeAspectFill,
+                    orientation: orientation
+                )
+                .overlay(
+                    Image("ic_camera", bundle: .current)
+                        .foregroundColor(.white)
+                )
+            } else {
+                let screenWith = UIScreen.main.bounds.width
+                let width = (screenWith - 1)/3
+                Color.white
+                    .frame(width: width, height: width)
+                    .overlay(
+                        Image("ic_camera", bundle: .current)
+                            .foregroundColor(.white)
+                    )
+            }            
         }
         .onEnteredBackground(perform: liveCameraViewModel.stopSession)
         .onEnteredForeground(perform: liveCameraViewModel.startSession)
