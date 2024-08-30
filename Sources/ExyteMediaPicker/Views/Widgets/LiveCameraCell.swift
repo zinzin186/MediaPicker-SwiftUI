@@ -8,36 +8,51 @@ struct LiveCameraCell: View {
 
     let action: () -> Void
     
-    @StateObject private var liveCameraViewModel = LiveCameraViewModel()
-    @State private var orientation = UIDevice.current.orientation
-    
+//    @StateObject private var liveCameraViewModel = LiveCameraViewModel()
+//    @State private var orientation = UIDevice.current.orientation
+//    
     var body: some View {
         Button {
             action()
         } label: {
-            if #available(iOS 16.0, *) {
-                LiveCameraView(
-                    session: liveCameraViewModel.captureSession,
-                    videoGravity: .resizeAspectFill,
-                    orientation: orientation
-                )
+            let screenWith = UIScreen.main.bounds.width
+            let width = (screenWith - 1)/3
+            Color.white
+                .frame(width: width, height: width)
                 .overlay(
                     Image("ic_camera", bundle: .current)
                         .foregroundColor(.white)
                 )
-            } else {
-                let screenWith = UIScreen.main.bounds.width
-                let width = (screenWith - 1)/3
-                Color.white
-                    .frame(width: width, height: width)
-                    .overlay(
-                        Image("ic_camera", bundle: .current)
-                            .foregroundColor(.white)
-                    )
-            }            
         }
-        .onEnteredBackground(perform: liveCameraViewModel.stopSession)
-        .onEnteredForeground(perform: liveCameraViewModel.startSession)
-        .onRotate { orientation = $0 }
     }
+    
+//    var body: some View {
+//        Button {
+//            action()
+//        } label: {
+//            if #available(iOS 16.0, *) {
+//                LiveCameraView(
+//                    session: liveCameraViewModel.captureSession,
+//                    videoGravity: .resizeAspectFill,
+//                    orientation: orientation
+//                )
+//                .overlay(
+//                    Image("ic_camera", bundle: .current)
+//                        .foregroundColor(.white)
+//                )
+//            } else {
+//                let screenWith = UIScreen.main.bounds.width
+//                let width = (screenWith - 1)/3
+//                Color.white
+//                    .frame(width: width, height: width)
+//                    .overlay(
+//                        Image("ic_camera", bundle: .current)
+//                            .foregroundColor(.white)
+//                    )
+//            }            
+//        }
+//        .onEnteredBackground(perform: liveCameraViewModel.stopSession)
+//        .onEnteredForeground(perform: liveCameraViewModel.startSession)
+//        .onRotate { orientation = $0 }
+//    }
 }
