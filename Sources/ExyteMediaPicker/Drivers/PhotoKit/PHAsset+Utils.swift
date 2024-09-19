@@ -43,7 +43,7 @@ extension PHAsset {
             let options = PHContentEditingInputRequestOptions()
             options.isNetworkAccessAllowed = true
             options.canHandleAdjustmentData = { _ -> Bool in
-                return true
+                return false
             }
             request = .contentEditing(
                 requestContentEditingInput(
